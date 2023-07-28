@@ -12,23 +12,33 @@ The application provides the functionality of managing a simple **real-time inve
 
 La aplicación proporciona la funcionalidad de gestionar un sencillo **inventario en tiempo real** entre todos los "vendedores" del sistema, de manera que las operaciones sobre el inventario (principalmente ventas) se reflejarán **inmediatamente** en todos los clientes conectados al backend.
 
-## Setup
-
-### Enviorments
+## Development environments
 
 - SQL Server 2019 and SQL Server Management Studio 19.1
 - Microsoft Visual Studio Community 2022 (64-bit) Version 17.6.4
 
-### Installation
+## Setup
+
+### Additional libraries used in the frontend
 
 ## Gallery
 
 ### Login
 
+![](resources/login.png)
+
 ### Dashboard
+
+![](resources/dashboard.png)
 
 ### Receipt details
 
+![](resources/receiptDetails.png)
+
 ### Database
 
+![](resources/diagram.png)
+
 ### Real-time inventory feature demostration
+
+![](resources/liveDemo.gif)
