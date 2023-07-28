@@ -19,7 +19,21 @@ La aplicación proporciona la funcionalidad de gestionar un sencillo **inventari
 
 ## Setup
 
-### Additional libraries used in the frontend
+1. Create a database in SQL Server named `INVENTORY`
+2. Run the SQL script `SalesStormBackend/Database/script.sql` in SQL Server Management Studio to create the database and its tables. [How to run a script in SSMS](https://stackoverflow.com/questions/10261855/how-to-run-sql-script-using-sql-server-management-studios)
+3. Change the connection credentials in the file `SalesStormBackend/Data/RelDatabase.cs` to match your SQL Server credentials.
+4. Open the solution `SalesStormBackend/SalesStormBackend.sln` in Visual Studio and run the project.
+5. Open the folder `SalesStormFrontend` in a terminal and run `npm install` to install the dependencies.
+6. Run `ng serve -o` to start the Angular development server.
+
+***
+
+1. Crear una base de datos en SQL Server con el nombre `INVENTORY`.
+2. Ejecutar el script SQL `SalesStormBackend/Database/script.sql` en SQL Server Management Studio para crear la base de datos y sus tablas. [Cómo ejecutar un script en SSMS](https://stackoverflow.com/questions/10261855/how-to-run-sql-script-using-sql-server-management-studios)
+3. Cambiar las credenciales de conexión en el archivo `SalesStormBackend/Data/RelDatabase.cs` para que coincidan con las credenciales de SQL Server.
+4. Abrir la solución `SalesStormBackend/SalesStormBackend.sln` en Visual Studio y ejecutar el proyecto.
+5. Abrir la carpeta `SalesStormFrontend` en una terminal y ejecutar `npm install` para instalar las dependencias.
+6. Ejecutar `ng serve -o` para iniciar el servidor de desarrollo de Angular.
 
 ## Gallery
 
