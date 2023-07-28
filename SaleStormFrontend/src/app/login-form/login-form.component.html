@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+  <div class="row">
+    <br>
+    <h1>Login</h1>
+    <br>
+  </div>
+  <form class="">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control form-control-lg" id="username" name="username"
+            placeholder="Enter username" [(ngModel)]="userName">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control form-control-lg" id="password" name="password"
+            placeholder="Enter password" [(ngModel)]="userPassword">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <br>
+          <button type="submit" class="btn btn-primary btn-lg" (click)="login()">
+            <i class="bi bi-arrow-right-circle-fill"></i> Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<br>

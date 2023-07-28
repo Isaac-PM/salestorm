@@ -1,0 +1,54 @@
+<td>
+  {{receipt.id}}
+</td>
+<td>
+  {{receipt.grandTotal | currency}}
+</td>
+<td>
+  {{receipt.lines.length}}
+</td>
+<td>
+  <button class="btn btn-primary" type="button" (click)="showReceiptDetails()"
+    *ngIf="!displayDetails; else hideDetails">
+    <i class="bi bi-plus-circle-fill"></i>
+  </button>
+  <ng-template #hideDetails>
+    <button class="btn btn-danger" type="button" (click)="showReceiptDetails()">
+      <i class=" bi bi-dash-circle-fill"></i>
+    </button>
+  </ng-template>
+</td>
+
+<dialog #detailsDialog>
+  <div class="container">
+    <div class="modal-header">
+      <h3 class="modal-title">Receipt № {{receipt.id}}</h3>
+      <button type="button" class="btn-close" (click)="showReceiptDetails()" aria-label="Close"></button>
+    </div>
+    <br>
+    <div class="modal-body">
+      <table class="table table-striped align-middle">
+        <thead>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let line of receipt.lines;">
+            <td>{{line.item.itemDescription}}</td>
+            <td>{{line.quantity}}</td>
+            <td>{{line.item.salePrice | currency}}</td>
+            <td>{{line.lineTotal | currency}}</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="text-end">
+              <h3>Total {{receipt.grandTotal | currency}}</h3>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</dialog>

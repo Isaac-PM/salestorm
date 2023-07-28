@@ -1,0 +1,11 @@
+.appHeader {
+    background: rgb(255, 180, 110);
+    background: radial-gradient(circle, rgba(255, 180, 110, 1) 0%, rgba(255, 68, 68, 1) 100%);
+}
+
+.appTitle {
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+}

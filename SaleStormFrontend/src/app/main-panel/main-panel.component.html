@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button type="button" class="btn btn-danger" (click)="logout()">
+            <i class="bi bi-arrow-left-circle-fill"></i> Logout
+          </button>
+        </li>
+        <li class="nav-item ms-3">
+          <button type="button" class="btn  btn-info" disabled>
+            <i class="bi bi-person-circle"></i> {{ worker.userName }}'s panel
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" *ngIf="worker?.userType === 'seller'; else adminPanel">
+  <br>
+  <h1>Seller panel 🛒</h1>
+  <br>
+
+  <div class="row">
+    <div class="col">
+      <h2>New sell</h2>
+    </div>
+    <div class="col">
+      <h2>Your receipts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped align-middle">
+        <thead>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Maximun quantity</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of inventory;">
+            <td>{{item.itemDescription}}</td>
+            <td>{{item.salePrice | currency}}</td>
+            <td>{{item.currentQuantity}}</td>
+            <td>
+              <input id={{item.id}} name={{item.id}} type="number" min="0" [attr.max]="item.currentQuantity" value="0"
+                placeholder="0" [attr.data-itemId]="item.id" (change)="addToCart($event)">
+            </td>
+            <td>
+              <p [attr.id]="'itemTotal' + item.id">{{0 | currency}}</p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5" class="text-end">
+              <h3>Total {{shoppingCartTotal | currency}}</h3>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5" class="text-end">
+              <button class="btn btn-primary" (click)="generateReceipt()">Generate receipt</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <table class="table table-striped align-middle">
+        <thead>
+          <th>Number</th>
+          <th>Total</th>
+          <th>Lines</th>
+          <th>Details</th>
+        </thead>
+        <tbody>
+          <tr app-receipt *ngFor="let receipt of worker.receipts;" [receipt]="receipt">
+
+          </tr>
+          <tr>
+            <td colspan="4" class="text-end">
+              <h4>{{worker.userName}}'s total {{totalSelledFromWorker | currency}}</h4>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #adminPanel>
+  <div class="container">
+    <h1>Admin panel</h1>
+  </div>
+</ng-template>
